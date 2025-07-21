@@ -2,7 +2,8 @@ import pytest
 import pandas as pd
 import wandb
 
-
+# This function adds command-line options so that pytest can accept parameters
+# These values are made available to the test functions and fixtures via request.config.option.
 def pytest_addoption(parser):
     parser.addoption("--csv", action="store")
     parser.addoption("--ref", action="store")
