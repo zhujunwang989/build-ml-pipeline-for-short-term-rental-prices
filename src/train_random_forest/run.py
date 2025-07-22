@@ -54,8 +54,10 @@ def go(args):
     ######################################
     # Use run.use_artifact(...).file() to get the train and validation artifact (args.trainval_artifact)
     # and save the returned path in train_local_pat
-    trainval_local_path = run.use_artifact(args.trainval_artifact).download()
-    trainval_local_path= os.path.join(trainval_local_path, "trainval_data.csv")
+    trainval_local_path = run.use_artifact(args.trainval_artifact).file()
+
+    # trainval_local_path = run.use_artifact(args.trainval_artifact).download()
+    # trainval_local_path= os.path.join(trainval_local_path, "trainval_data.csv")
     ######################################
 
     X = pd.read_csv(trainval_local_path)
